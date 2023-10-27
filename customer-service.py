@@ -2,6 +2,14 @@ import pyautogui
 import time
 
 
+# Function to find the coordinates of the mouse cursor
+def find_coordinates():
+    while True:
+        print(pyautogui.position())  # Display the current position of the mouse
+        time.sleep(1)  # Optional: Adjust the delay to make it easier to read the coordinates
+
+# Uncomment the line below to find the coordinates
+# find_coordinates()
 
 network_drive_path = r"\\network\share\path"
 programs_to_install = [
@@ -9,6 +17,7 @@ programs_to_install = [
     "program2.msi",
     # Add more programs as needed
 ]
+
 import subprocess
 
 for program in programs_to_install:
@@ -23,7 +32,6 @@ for program in programs_to_install:
         subprocess.run(["msiexec", "/i", program_path, "/qn", "REBOOT=ReallySuppress"])
 
     # Add more installation methods for other types as needed
-
 
 # Define a function to automate the installation process
 def automate_installation():
